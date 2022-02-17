@@ -17,7 +17,7 @@ const Recipes = () => {
 
   return (
     <div>
-      <h3>current recipe</h3>
+      <h3>current recipe  home station</h3>
       <button onClick={() => setRecipe(elvenRecipe)}>Elven</button>
       <button onClick={() => setRecipe(elvenGau)}>Gau</button>
 
