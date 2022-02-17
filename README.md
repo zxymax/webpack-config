@@ -64,3 +64,52 @@ module.exports = {
     hot: true,
   }
 ```
+
+#### Images
+
+Images with Asset Modules type
+
+```js
+// change webpack.config.js, support images
+  module: {
+    rules: [
+      {
+        test: /\.s?css$/i, // /\.(s[ac]|c)ss$/i    sass scss css
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: ''
+            }
+          },
+          'css-loader',
+          'postcss-loader',
+          'sass-loader'
+        ]
+      },
+      {
+        test: /\.(png|jpe?g|gif|webp|svg)$/i,
+        type: "asset/inline"
+
+      }
+    ]
+  },
+```
+
+```js
+// add html-webpack-plugin
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html'
+    })
+  ],
+```
+
+```js
+// add clean-webpack-plugin
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+  plugins: [
+    new CleanWebpackPlugin(),
+  ],
+```
